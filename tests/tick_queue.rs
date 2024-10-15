@@ -39,6 +39,20 @@ fn push_and_pop_step() {
 }
 
 #[test_log::test]
+fn default_queue() {
+    let mut items = Queue::<GameInput>::default();
+    items
+        .push(TickId(0), GameInput::Jumping(true))
+        .expect("Expected a jumping tick");
+    items
+        .push(TickId(1), GameInput::MoveHorizontal(42))
+        .expect("Expected a move horizontal tick");
+    assert_eq!(items.len(), 2);
+    items.discard_count(8);
+    assert_eq!(items.len(), 0);
+}
+
+#[test_log::test]
 fn push_and_discard_count() {
     let mut items = Queue::new(TickId(23));
     items

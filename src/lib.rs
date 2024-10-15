@@ -52,10 +52,19 @@ impl<T: Display> Display for ItemInfo<T> {
     }
 }
 
-#[derive(Default, Debug)]
+#[derive(Debug)]
 pub struct Queue<T> {
     items: VecDeque<ItemInfo<T>>,
     expected_write_id: TickId, // Tracks the next TickId to be written, ensuring continuity even when the queue is empty
+}
+
+impl<T> Default for Queue<T> {
+    fn default() -> Self {
+        Self {
+            items: Default::default(),
+            expected_write_id: Default::default(),
+        }
+    }
 }
 
 impl<T> Queue<T> {
