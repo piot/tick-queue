@@ -1,8 +1,7 @@
 /*
- * Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/nimble-rust/nimble
+ * Copyright (c) Peter Bjorklund. All rights reserved. https://github.com/piot/tick-queue
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  */
-
 /*!
 # Tick Queue Crate
 
